@@ -8,13 +8,21 @@ const vs_languages_features_css_cssWorker = (await ((import.meta.env.DEV && !imp
     ? import("../../node_modules/monaco-editor/esm/vs/languages/features/css/css.worker?worker&url")
     : import("omt:../../node_modules/monaco-editor/esm/vs/languages/features/css/css.worker")
 )).default
+/**
+ * workaround for SecurityError caused by using the URL directly
+ */
+function createWorker(url: string, name: string) {
+    const absoluteUrl = new URL(url, import.meta.url).href;
+    const blob = new Blob([`import ${JSON.stringify(absoluteUrl)};`], { type: "text/javascript" });
+    return new Worker(URL.createObjectURL(blob), { type: "module", name });
+}
 globalThis.MonacoEnvironment = {
     getWorker(_name, label) {
         switch (label) {
             case "editorWorkerService":
-            return new Worker(vs_editor_editor, {type: "module", name: "vs/editor/editor" });
+            return createWorker(vs_editor_editor, "vs/editor/editor");
             case "css":
-            return new Worker(vs_languages_features_css_cssWorker, {type: "module", name: "vs/languages/features/css/cssWorker" });
+            return createWorker(vs_languages_features_css_cssWorker, "vs/languages/features/css/cssWorker");
         }
         throw new Error(`No worker found for label: ${label}`);
     }

@@ -202,6 +202,14 @@ const generatedContent = dedent/*js*/`
     })
         .toArray()
         .join("\n")}
+    /**
+     * workaround for SecurityError caused by using the URL directly
+     */
+    function createWorker(url: string, name: string) {
+        const absoluteUrl = new URL(url, import.meta.url).href;
+        const blob = new Blob([${"`"}import ${"$"}{JSON.stringify(absoluteUrl)};${"`"}], { type: "text/javascript" });
+        return new Worker(URL.createObjectURL(blob), { type: "module", name });
+    }
     globalThis.MonacoEnvironment = {
         getWorker(_name, label) {
             switch (label) {
@@ -212,7 +220,7 @@ const generatedContent = dedent/*js*/`
                             .values()
                             .map((name) => /*js*/`case "${name}":`)
                             .toArray(),
-                        /*js*/`return new Worker(${makeLegalIdentifier(id)}, {type: "module", name: "${id}" });`,
+                        /*js*/`return createWorker(${makeLegalIdentifier(id)}, "${id}");`,
                     ])
                     .toArray()
                     .join("\n")}
