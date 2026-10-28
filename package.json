@@ -1,5 +1,5 @@
 {
-  "name": "@sadan4/vencord-monaco-editor",
+  "name": "@vencord/monaco-editor",
   "version": "2.0.3",
   "description": "",
   "main": "index.js",
@@ -11,6 +11,10 @@
   "scripts": {
     "build": "node scripts/monacoEditor.ts && vite build",
     "prepublishOnly": "pnpm build"
+  },
+  "repository": {
+    "url": "https://github.com/vencord/monaco-editor-prebuild",
+    "type": "git"
   },
   "license": "ISC",
   "packageManager": "pnpm@10.34.5",
