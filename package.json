@@ -11,7 +11,7 @@
     "prepublishOnly": "pnpm build"
   },
   "repository": {
-    "url": "git+https://github.com/vencord/monaco-editor-prebuild.git",
+    "url": "git+https://github.com/Vencord/monaco-editor-prebuild.git",
     "type": "git"
   },
   "license": "MIT",
@@ -26,7 +26,7 @@
     "vite": "^8.3.5"
   },
   "bugs": {
-    "url": "https://github.com/vencord/monaco-editor-prebuild/issues"
+    "url": "https://github.com/Vencord/monaco-editor-prebuild/issues"
   },
-  "homepage": "https://github.com/vencord/monaco-editor-prebuild#readme"
+  "homepage": "https://github.com/Vencord/monaco-editor-prebuild#readme"
 }
