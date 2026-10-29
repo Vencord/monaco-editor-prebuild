@@ -1,7 +1,7 @@
 {
   "name": "@vencord/monaco-editor",
   "private": false,
-  "version": "0.57.0-beta.1",
+  "version": "0.57.0-beta.2",
   "description": "monaco editor, pre-bundled and optimized with size in mind for use in vencord",
   "main": "index.js",
   "keywords": [],
