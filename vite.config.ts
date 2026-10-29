@@ -11,8 +11,8 @@ export default defineConfig({
             }
         },
     },
-    base: "/vendor/monaco",
     plugins: [
         omt(),
     ],
+    base: "./",
 })
