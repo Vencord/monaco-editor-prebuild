@@ -6,10 +6,11 @@ export default defineConfig({
         rolldownOptions: {
             output: {
                 chunkFileNames: "[hash:8].js",
-                assetFileNames: "[hash:8].[ext]",
+                assetFileNames: "[name].[ext]",
                 entryFileNames: "[name].js"
             }
         },
+        cssCodeSplit: false,
     },
     plugins: [
         omt(),

@@ -194,9 +194,7 @@ const generatedContent = dedent/*js*/`
         const ident = makeLegalIdentifier(id);
 
         return dedent/*js*/`
-            //  FIXME: making these non-dynamic imports causes vite to exclude a css chunk from the final bundle
-            // import ${ident} from "omt:${refId}";
-            const {default: ${ident}} = await import("omt:${refId}");
+            import ${ident} from "omt:${refId}";
         `;
     })
         .toArray()
