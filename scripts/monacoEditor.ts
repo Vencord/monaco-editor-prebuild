@@ -28,16 +28,6 @@ interface MonacoEditorOptions {
 
 const OPTIONS = Object.freeze({
     languages: ["css"],
-    features: [
-        "bracketMatching",
-        "clipboard",
-        "colorPicker",
-        "contextmenu",
-        "comment",
-        "find",
-        "folding",
-        "hover",
-    ]
 } satisfies MonacoEditorOptions as MonacoEditorOptions);
 
 
